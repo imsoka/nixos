@@ -28,6 +28,8 @@
   #Define gamer group
   users.groups.gamer = {};  
 
+  programs.ssh.startAgent = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soka = {
     isNormalUser = true;
