@@ -13,6 +13,7 @@
       ../../applications/graphical/steam.nix
       ../../applications/graphical/webcord.nix
       ../../applications/graphical/gparted.nix
+      ../../applications/graphical/alacritty.nix
       ../../applications/graphical/browsers/firefox.nix
     ];
 
@@ -29,4 +30,5 @@
   steam.enable = true;
   webcord.enable = true;
   gparted.enable = true;
+  alacritty.enable = true;
 }
