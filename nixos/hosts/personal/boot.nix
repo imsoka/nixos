@@ -17,5 +17,4 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.gfxmodeEfi = "3440x1440";
-
 }
