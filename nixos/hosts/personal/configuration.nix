@@ -30,13 +30,13 @@
 
   programs.ssh.startAgent = true;
 
+  services.blueman.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
     extraGroups = [ "networkmanager" "wheel" "gamer" ];
-    packages = with pkgs; [
-    ];
   };
 
   system.stateVersion = "23.11"; # Did you read the comment?

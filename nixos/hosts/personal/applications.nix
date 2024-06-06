@@ -14,6 +14,7 @@
       ../../applications/graphical/webcord.nix
       ../../applications/graphical/gparted.nix
       ../../applications/graphical/alacritty.nix
+      ../../applications/graphical/libreoffice.nix
       ../../applications/graphical/browsers/firefox.nix
     ];
 
@@ -31,4 +32,5 @@
   webcord.enable = true;
   gparted.enable = true;
   alacritty.enable = true;
+  libreoffice.enable = true;
 }
