@@ -36,7 +36,7 @@
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
-    extraGroups = [ "networkmanager" "wheel" "gamer" ];
+    extraGroups = [ "networkmanager" "wheel" "gamer" "dialout"];
   };
 
   system.stateVersion = "23.11"; # Did you read the comment?

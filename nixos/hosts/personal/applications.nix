@@ -16,6 +16,7 @@
       ../../applications/graphical/gparted.nix
       ../../applications/graphical/alacritty.nix
       ../../applications/graphical/libreoffice.nix
+      ../../applications/graphical/browsers/brave.nix
       ../../applications/graphical/browsers/firefox.nix
     ];
 
@@ -35,4 +36,5 @@
   alacritty.enable = true;
   libreoffice.enable = true;
   qflipper.enable = true;
+  brave.enable = true;
 }
