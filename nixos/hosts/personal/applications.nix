@@ -10,6 +10,7 @@
       ../../applications/graphical/nextcloud-client.nix
       ../../applications/graphical/keepassxc.nix
       ../../applications/graphical/lutris.nix
+      ../../applications/graphical/qflipper.nix
       ../../applications/graphical/steam.nix
       ../../applications/graphical/webcord.nix
       ../../applications/graphical/gparted.nix
@@ -33,4 +34,5 @@
   gparted.enable = true;
   alacritty.enable = true;
   libreoffice.enable = true;
+  qflipper.enable = true;
 }

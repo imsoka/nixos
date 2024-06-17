@@ -7,8 +7,8 @@
 
 
   config = lib.mkIf config.libreoffice.enable {
-    environment.systemPackages = with pkgs; {
+    environment.systemPackages = with pkgs; [
       libreoffice-fresh
-    };
+    ];
   };
 }
