@@ -2,7 +2,7 @@
 
 {
   options = {
-    enable = lib.mkEnableOption "enables logseq";
+    logseq.enable = lib.mkEnableOption "enables logseq";
   };
 
   config = lib.mkIf config.logseq.enable {
