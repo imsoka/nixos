@@ -18,6 +18,9 @@
       LC_TELEPHONE = "es_ES.UTF-8";
       LC_TIME = "es_ES.UTF-8";
     };
+ 
+    # Configure console keymap 
+    console.keyMap = "es";
 
     # Set your time zone.
     time.timeZone = "Europe/Madrid";

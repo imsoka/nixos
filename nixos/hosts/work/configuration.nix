@@ -19,11 +19,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #Enable networking
-  networking.hostName = "sokix"; # Define your hostname.
+  networking.hostName = "sokix-work"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  #Define gamer group
-  users.groups.gamer = {};  
 
   programs.ssh.startAgent = true;
   services.blueman.enable = true;
@@ -32,7 +30,7 @@
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
-    extraGroups = [ "networkmanager" "wheel" "gamer" ];
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   system.stateVersion = "23.11"; # Did you read the comment?
