@@ -12,6 +12,7 @@
       ../../applications/graphical/alacritty.nix
       ../../applications/graphical/libreoffice.nix
       ../../applications/graphical/nile.nix
+      ../../applications/graphical/bottles.nix
       ../../applications/graphical/browsers/firefox.nix
     ];
 
@@ -26,4 +27,5 @@
   libreoffice.enable = true;
   qflipper.enable = true;
   nile.enable = true;
+  bottles.enable = true;
 }
