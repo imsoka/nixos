@@ -14,6 +14,7 @@
       ../../applications/graphical/nile.nix
       ../../applications/graphical/bottles.nix
       ../../applications/graphical/browsers/firefox.nix
+      ../../applications/cli/texlive.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -28,4 +29,5 @@
   qflipper.enable = true;
   nile.enable = true;
   bottles.enable = true;
+  texlive.enable = true;
 }

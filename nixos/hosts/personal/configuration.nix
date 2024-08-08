@@ -35,5 +35,9 @@
     extraGroups = [ "networkmanager" "wheel" "gamer" ];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
+
   system.stateVersion = "23.11"; # Did you read the comment?
 }
