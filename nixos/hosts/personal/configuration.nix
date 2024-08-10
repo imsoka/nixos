@@ -35,6 +35,8 @@
     extraGroups = [ "networkmanager" "wheel" "gamer" ];
   };
 
+  security.pam.services.kdewallet.kwallet.enable = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
