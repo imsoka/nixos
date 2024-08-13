@@ -34,8 +34,9 @@
     description = "Victor Araque Casaus";
     extraGroups = [ "networkmanager" "wheel" "gamer" ];
   };
-
-  security.pam.services.kdewallet.kwallet.enable = true;
+  
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
