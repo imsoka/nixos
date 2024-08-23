@@ -1,12 +1,11 @@
 { pkgs, lib, config, ... }:
 
 {
-  imports =
-    [
+  imports = [
       ../../applications/graphical/lutris.nix
       ../../applications/graphical/steam.nix
       ../../applications/graphical/webcord.nix
-    ];
+  ];
 
   lutris.enable = true;
   steam.enable = true;

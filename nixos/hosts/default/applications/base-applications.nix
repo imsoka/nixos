@@ -10,9 +10,9 @@
 
     ../../applications/graphical/keepassxc.nix
     ../../applications/graphical/nextcloud-client.nix
-    ../../applications/graphical/logseq.nix
     ../../applications/graphical/alacritty.nix
     ../../applications/graphical/browsers/brave.nix
+    ../../applications/graphical/logseq.nix
     ../../applications/graphical/libreoffice.nix
   ];
 

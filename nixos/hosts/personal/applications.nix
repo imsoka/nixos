@@ -3,8 +3,7 @@
 {
   imports =
     [
-      ../default/applications.nix
-      ./gaming-applications.nix
+      ../default/applications/base-applications.nix
+      ../default/applications/gaming-applications.nix
     ];
-
 }
