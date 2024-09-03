@@ -32,11 +32,14 @@
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
-    extraGroups = [ "networkmanager" "wheel" "gamer" ];
+    extraGroups = [ "networkmanager" "wheel" "gamer" "docker" ];
   };
   
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"

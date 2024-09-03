@@ -2,9 +2,9 @@
 
 {
   imports = [
-      ../../applications/graphical/lutris.nix
-      ../../applications/graphical/steam.nix
-      ../../applications/graphical/webcord.nix
+      ../../../applications/graphical/lutris.nix
+      ../../../applications/graphical/steam.nix
+      ../../../applications/graphical/webcord.nix
   ];
 
   lutris.enable = true;

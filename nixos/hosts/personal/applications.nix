@@ -5,5 +5,8 @@
     [
       ../default/applications/base-applications.nix
       ../default/applications/gaming-applications.nix
+      ../../applications/graphical/mpv.nix
     ];
+
+  mpv.enable = true;
 }
