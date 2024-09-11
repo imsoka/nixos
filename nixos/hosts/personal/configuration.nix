@@ -26,7 +26,6 @@
   users.groups.gamer = {};  
 
   programs.ssh.startAgent = true;
-  services.blueman.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soka = {
@@ -45,5 +44,5 @@
     "electron-27.3.11"
   ];
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }
