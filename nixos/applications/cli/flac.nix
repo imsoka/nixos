@@ -1,17 +1,18 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    ddev = {
-      enable = lib.mkEnableOption "enables ddev";
+    flac = {
+      enable = lib.mkEnableOption "enables flac";
     };
   };
 
-  config = lib.mkIf config.ddev.enable {
+  config = lib.mkIf config.flac.enable {
     environment.systemPackages = with pkgs; [
       curl
       mkcert
       docker-compose
-      ddev
+      flac
     ];
   };
 }
+
