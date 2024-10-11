@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.minecraft.enable {
     environment.systemPackages = with pkgs; [
-      minecraft
+      prismlauncher
     ]; 
   };
 }

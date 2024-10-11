@@ -43,6 +43,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
+  nixpkgs.config.allowBroken = true;
 
   system.stateVersion = "23.11";
 }
