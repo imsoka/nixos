@@ -5,10 +5,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.kernelParams = [ "quiet" "udev.log_level=3" ];
 
-  #Plymouth configuration
-  boot.plymouth.enable = true;
-  boot.plymouth.theme = "breeze";
-
   boot.initrd.systemd.enable = true;
 
   #Grub configuration

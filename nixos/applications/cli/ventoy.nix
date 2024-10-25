@@ -1,12 +1,12 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    ventoy-full = {
-      enable = lib.mkEnableOption "enables ventoy-full";
+    ventoy = {
+      enable = lib.mkEnableOption "enables ventoy";
     };
   };
 
-  config = lib.mkIf config.ventoy-full.enable {
+  config = lib.mkIf config.ventoy.enable {
     environment.systemPackages = with pkgs; [
       ventoy-full
     ];
