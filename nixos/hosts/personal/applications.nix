@@ -12,6 +12,7 @@
       ../../applications/graphical/thunar.nix
       ../../applications/graphical/orca-slicer.nix
       ../../applications/graphical/minecraft.nix
+      ../../applications/graphical/inkscape.nix
     ];
 
   mpv.enable = true;
@@ -21,4 +22,5 @@
   minecraft.enable = true;
   libreoffice.enable = true;
   orca-slicer.enable = true;
+  inkscape.enable = true;
 }
