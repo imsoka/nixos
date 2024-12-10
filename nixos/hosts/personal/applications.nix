@@ -10,7 +10,6 @@
       ../../applications/cli/ddev.nix
       ../../applications/cli/ventoy.nix
       ../../applications/graphical/thunar.nix
-      ../../applications/graphical/orca-slicer.nix
       ../../applications/graphical/minecraft.nix
       ../../applications/graphical/inkscape.nix
     ];
@@ -21,6 +20,5 @@
   ventoy.enable = true;
   minecraft.enable = true;
   libreoffice.enable = true;
-  orca-slicer.enable = true;
   inkscape.enable = true;
 }
