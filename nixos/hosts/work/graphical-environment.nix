@@ -5,16 +5,18 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  security.pam.services.login.enableKwallet = true;
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    greeters.gtk.enable = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
 
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     i3status
     dmenu
     nitrogen
-    pasystray
   ];
   
   # Configure keymap in X11

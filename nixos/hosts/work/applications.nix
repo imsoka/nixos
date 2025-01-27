@@ -4,10 +4,8 @@
   imports =
     [
       ../default/applications/base-applications.nix
-      ../../applications/cli/openfortivpn.nix
-      ../../applications/graphical/teams.nix
+      ../../applications/cli/ollama.nix
     ];
 
-    openfortivpn.enable = true;
-    teams.enable = true;
+  ollama.enable = true;
 }
