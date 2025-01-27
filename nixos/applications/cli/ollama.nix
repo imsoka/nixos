@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    ddev = {
+    ollama = {
       enable = lib.mkEnableOption "enables ollama";
     };
   };
