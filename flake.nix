@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixified-ai.url = "github:matthewcroughan/nixified-ai";
   };
 
   outputs = { self, nixpkgs, nixified-ai }: 
@@ -26,7 +25,6 @@
       specialArgs = { inherit system; };
 
       modules = [
-        nixified-ai.nixosModules.comfyui
         ./nixos/hosts/personal/configuration.nix
       ];
     };
