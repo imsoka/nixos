@@ -14,7 +14,6 @@
       ./graphical-environment.nix
       ./sound.nix
       ./hardware-configuration.nix
-      ./ia.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
