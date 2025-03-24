@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   options = {
-    ddev = {
+    openfortivpn = {
       enable = lib.mkEnableOption "enables openfortivpn";
     };
   };
@@ -9,6 +9,7 @@
   config = lib.mkIf config.openfortivpn.enable {
     environment.systemPackages = with pkgs; [
       openfortivpn
+      openfortivpn-webview-qt
     ];
   };
 }
