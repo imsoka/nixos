@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./boot.nix
       ./locale.nix
       ./applications.nix
@@ -22,7 +22,6 @@
   networking.hostName = "sokix-work"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-
   programs.ssh.startAgent = true;
   services.blueman.enable = true;
 
@@ -32,6 +31,10 @@
     description = "Victor Araque Casaus";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
 }

@@ -6,8 +6,10 @@
     };
   };
 
-  config = lib.mkIf config.git.enable {
-    programs.openfortivpn.enable = true;
+  config = lib.mkIf config.openfortivpn.enable {
+    environment.systemPackages = with pkgs; [
+      openfortivpn
+    ];
   };
 }
 

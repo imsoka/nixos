@@ -28,6 +28,14 @@
         ./nixos/hosts/personal/configuration.nix
       ];
     };
+
+    sokix-work = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit system; };
+
+      modules = [
+        ./nixos/hosts/work/configuration.nix
+      ];
+    };
   };
 
   };
