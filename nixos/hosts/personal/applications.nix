@@ -5,13 +5,15 @@
     [
       ../default/applications/base-applications.nix
       ../default/applications/gaming-applications.nix
-      ../../applications/graphical/mpv.nix
-      ../../applications/graphical/libreoffice.nix
       ../../applications/cli/ventoy.nix
+      ../../applications/cli/openfortivpn.nix
       ../../applications/graphical/thunar.nix
       ../../applications/graphical/minecraft.nix
       ../../applications/graphical/inkscape.nix
       ../../applications/graphical/orca-slicer.nix
+      ../../applications/graphical/mpv.nix
+      ../../applications/graphical/libreoffice.nix
+      ../../applications/graphical/qbittorrent.nix
     ];
 
   mpv.enable = true;
@@ -21,4 +23,6 @@
   libreoffice.enable = true;
   inkscape.enable = true;
   orca-slicer.enable = true;
+  qbittorrent.enable = true;
+  openfortivpn.enable = true;
 }
