@@ -1,12 +1,13 @@
-{ pkgs, lib, config, ... }:
+{ ... }:
 
 {
   imports =
     [
-      ../default/applications/base-applications.nix
-      ../../applications/cli/openfortivpn.nix
-      ../../applications/graphical/dbeaver.nix
+      ../../applications/all-programs.nix
     ];
+
+    base-programs.enable = true;
+    calibre.enable = true;
 
     openfortivpn.enable = true;
     dbeaver.enable = true;

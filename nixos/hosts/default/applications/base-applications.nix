@@ -14,6 +14,7 @@
     ../../../applications/graphical/browsers/brave.nix
     ../../../applications/graphical/logseq.nix
     ../../../applications/graphical/libreoffice.nix
+    ../../../applications/graphical/calibre.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -30,5 +31,6 @@
   keepassxc.enable = true;
   logseq.enable = true;
   alacritty.enable = true;
+  calibre.enable = true;
 }
 
