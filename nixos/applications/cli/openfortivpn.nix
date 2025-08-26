@@ -9,6 +9,7 @@
   config = lib.mkIf config.openfortivpn.enable {
     environment.systemPackages = with pkgs; [
       openfortivpn
+      openfortivpn-webview-qt
     ];
   };
 }
