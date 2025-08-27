@@ -14,7 +14,6 @@
       ./graphical-environment.nix
       ./sound.nix
       ./hardware-configuration.nix
-      ./ia.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -36,10 +35,8 @@
   };
   
   services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
   security.pam.services.sddm.enableGnomeKeyring = true;
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"

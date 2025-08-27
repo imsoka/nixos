@@ -2,7 +2,7 @@
 
 {
   options = {
-    android-studio.enable = lib.mkEnableOption "enables android studio"
+    android-studio.enable = lib.mkEnableOption "enables android studio";
   };
 
   config = lib.mkIf config.android-studio.enable {

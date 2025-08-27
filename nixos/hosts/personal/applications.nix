@@ -3,26 +3,19 @@
 {
   imports =
     [
-      ../default/applications/base-applications.nix
-      ../default/applications/gaming-applications.nix
-      ../../applications/cli/ventoy.nix
-      ../../applications/cli/openfortivpn.nix
-      ../../applications/graphical/thunar.nix
-      ../../applications/graphical/minecraft.nix
-      ../../applications/graphical/inkscape.nix
-      ../../applications/graphical/orca-slicer.nix
-      ../../applications/graphical/mpv.nix
-      ../../applications/graphical/libreoffice.nix
-      ../../applications/graphical/qbittorrent.nix
+      ../../applications/all-programs.nix
     ];
+  base-programs.enable = true;
+  gaming-programs.enable = true;
+  
+  #Work
+  openfortivpn.enable = true;
+  dbeaver.enable = true;
 
   mpv.enable = true;
   thunar.enable = true;
-  ventoy.enable = true;
-  minecraft.enable = true;
   libreoffice.enable = true;
-  inkscape.enable = true;
-  orca-slicer.enable = true;
   qbittorrent.enable = true;
-  openfortivpn.enable = true;
+  google-chrome.enable = true;
+  anki.enable = true;
 }
