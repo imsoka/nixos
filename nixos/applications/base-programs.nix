@@ -6,6 +6,7 @@
     ./cli/git.nix
     ./cli/vim.nix
     ./cli/ranger.nix
+    ./cli/unzip.nix
 
     ./graphical/keepassxc.nix
     ./graphical/nextcloud-client.nix
