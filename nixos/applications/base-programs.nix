@@ -3,10 +3,10 @@
 {
   imports = [
     ./cli/home-manager.nix
-    ./cli/neovim.nix
     ./cli/git.nix
     ./cli/vim.nix
     ./cli/ranger.nix
+    ./cli/unzip.nix
 
     ./graphical/keepassxc.nix
     ./graphical/nextcloud-client.nix
@@ -24,7 +24,6 @@
 
   config = lib.mkIf config.base-programs.enable {
     git.enable = true;
-    neovim.enable = true;
     vim.enable = true;
     home-manager.enable = true;
     ranger.enable = true;
