@@ -32,6 +32,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];

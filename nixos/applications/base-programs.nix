@@ -16,6 +16,7 @@
     ./graphical/libreoffice.nix
     ./graphical/calibre.nix
     ./graphical/pavucontrol.nix
+    ./graphical/flameshot.nix
   ];
 
   options = {
@@ -35,6 +36,7 @@
     alacritty.enable = true;
     calibre.enable = true;
     pavucontrol.enable = true;
+    flameshot.enable = true;
   };
 }
 
