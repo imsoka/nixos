@@ -3,11 +3,12 @@
 {
   imports =
     [
-      ../../applications/all-programs.nix
+      ../../applications/base-programs.nix
+      ../../applications/graphical/openfortivpn.nix
+      ../../applications/graphical/dbeaver.nix
     ];
 
     base-programs.enable = true;
-    calibre.enable = true;
 
     openfortivpn.enable = true;
     dbeaver.enable = true;

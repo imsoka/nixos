@@ -28,6 +28,7 @@
     vim.enable = true;
     home-manager.enable = true;
     ranger.enable = true;
+    unzip.enable = true;
     libreoffice.enable = true;
     brave.enable = true;
     nextcloud-client.enable = true;
