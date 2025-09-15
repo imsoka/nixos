@@ -15,6 +15,7 @@
     ./graphical/logseq.nix
     ./graphical/libreoffice.nix
     ./graphical/calibre.nix
+    ./graphical/pavucontrol.nix
   ];
 
   options = {
@@ -34,6 +35,7 @@
     logseq.enable = true;
     alacritty.enable = true;
     calibre.enable = true;
+    pavucontrol.enable = true;
   };
 }
 
