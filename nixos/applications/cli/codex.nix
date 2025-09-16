@@ -8,6 +8,7 @@
 
   config = lib.mkIf config.codex.enable {
     environment.systemPackages = with pkgs; [
+      python3
       codex
     ];
   };
