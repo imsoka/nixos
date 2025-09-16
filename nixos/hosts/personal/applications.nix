@@ -1,10 +1,22 @@
-{ pkgs, lib, config, ... }:
+{ ... }:
 
 {
   imports =
     [
       ../../applications/base-programs.nix
       ../../applications/gaming-programs.nix
+
+      #Graphical
+      ../../applications/graphical/dbeaver.nix
+      ../../applications/graphical/google-chrome.nix
+      ../../applications/graphical/google-chrome.nix
+      ../../applications/graphical/anki.nix
+      ../../applications/graphical/mpv.nix
+
+      #CLI
+      ../../applications/cli/openfortivpn.nix
+      ../../applications/cli/codex.nix
+
     ];
   base-programs.enable = true;
   gaming-programs.enable = true;
@@ -14,10 +26,9 @@
   dbeaver.enable = true;
   google-chrome.enable = true;
 
+  codex.enable = true;
   anki.enable = true;
   mpv.enable = true;
-  thunar.enable = true;
-  libreoffice.enable = true;
   qbittorrent.enable = true;
   forge-mtg.enable = true;
 }

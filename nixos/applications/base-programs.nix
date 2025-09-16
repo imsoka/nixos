@@ -17,6 +17,7 @@
     ./graphical/calibre.nix
     ./graphical/pavucontrol.nix
     ./graphical/flameshot.nix
+    ./graphical/thunar.nix
   ];
 
   options = {
@@ -39,6 +40,7 @@
     pavucontrol.enable = true;
     flameshot.enable = true;
     tmux.enable = true;
+    thunar.enable = true;
   };
 }
 
