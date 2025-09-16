@@ -7,6 +7,7 @@
     ./cli/vim.nix
     ./cli/ranger.nix
     ./cli/unzip.nix
+    ./cli/tmux.nix
 
     ./graphical/keepassxc.nix
     ./graphical/nextcloud-client.nix

@@ -12,6 +12,7 @@
       ../../applications/graphical/google-chrome.nix
       ../../applications/graphical/anki.nix
       ../../applications/graphical/mpv.nix
+      ../../applications/graphical/qbittorrent.nix
 
       #CLI
       ../../applications/cli/openfortivpn.nix
@@ -30,5 +31,6 @@
   anki.enable = true;
   mpv.enable = true;
   qbittorrent.enable = true;
-  forge-mtg.enable = true;
+
+  nixpkgs.config = { allowUnfree = true; };
 }
