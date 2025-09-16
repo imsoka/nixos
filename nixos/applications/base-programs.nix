@@ -38,6 +38,7 @@
     calibre.enable = true;
     pavucontrol.enable = true;
     flameshot.enable = true;
+    tmux.enable = true;
   };
 }
 
