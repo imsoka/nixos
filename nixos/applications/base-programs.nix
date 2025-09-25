@@ -6,6 +6,9 @@
   };
 
   config = lib.mkIf config.base-programs.enable {
+    programs.git.enable = true;
+    programs.thunar.enable = true;
+
     environment.systemPackages = with pkgs; [
       home-manager
       ranger
@@ -15,32 +18,14 @@
       nextcloud-client
       keepassxc
       logseq
-      aclacritty
+      alacritty
       calibre
       pavucontrol
       flameshot
       tmux
-      thunar
       anki
       mpv
     ];
-
-    programs.git.enable = true;
-
-    git.enable = true;
-    home-manager.enable = true;
-    ranger.enable = true;
-    unzip.enable = true;
-    brave.enable = true;
-    nextcloud-client.enable = true;
-    keepassxc.enable = true;
-    logseq.enable = true;
-    alacritty.enable = true;
-    calibre.enable = true;
-    pavucontrol.enable = true;
-    flameshot.enable = true;
-    tmux.enable = true;
-    thunar.enable = true;
   };
 }
 

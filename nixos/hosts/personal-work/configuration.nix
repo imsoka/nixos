@@ -19,11 +19,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #Enable networking
-  networking.hostName = "sokix"; # Define your hostname.
+  networking.hostName = "sokix-work"; # Define your hostname.
   networking.networkmanager.enable = true;
-
-  #Define gamer group
-  users.groups.gamer = {};  
 
   programs.ssh.startAgent = true;
 
