@@ -26,6 +26,8 @@
       anki
       mpv
     ];
+
+    nixpkgs.config = { allowUnfree = true; };
   };
 }
 
