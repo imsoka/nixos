@@ -13,7 +13,10 @@
   environment.systemPackages = with pkgs; [
     codex
     python3 #codex depends on it
+    google-chrome
     qbittorrent
+    openfortivpn
+    bruno
   ];
   
   #Work

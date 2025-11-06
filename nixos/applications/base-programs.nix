@@ -7,7 +7,16 @@
 
   config = lib.mkIf config.base-programs.enable {
     programs.git.enable = true;
-    programs.thunar.enable = true;
+
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ 
+        thunar-archive-plugin  
+        thunar-volman  
+        thunar-vcs-plugin 
+        thunar-media-tags-plugin 
+      ];
+    };
 
     environment.systemPackages = with pkgs; [
       home-manager
