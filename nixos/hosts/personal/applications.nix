@@ -15,8 +15,10 @@
     python3 #codex depends on it
     google-chrome
     qbittorrent
-    openfortivpn
     bruno
+    vscodium
+    openfortivpn
+    dbeaver-bin
   ];
   
   #Work
