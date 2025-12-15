@@ -37,7 +37,10 @@
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
   security.pam.services.sddm.enableGnomeKeyring = true;
+ 
   services.blueman.enable = true;
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
