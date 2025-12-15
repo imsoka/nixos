@@ -24,6 +24,9 @@
 
   programs.ssh.startAgent = true;
   services.blueman.enable = true;
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soka = {
