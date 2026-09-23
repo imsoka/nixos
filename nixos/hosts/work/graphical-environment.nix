@@ -5,10 +5,13 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.gtk.enable = true;
-  };
+  # services.xserver.displayManager.lightdm = {
+    # enable = true;
+    # greeters.gtk.enable = true;
+  # };
+
+  services.displayManager.sddm.enable = true;
+
 
   services.gnome.gnome-keyring.enable = true;
 
