@@ -16,5 +16,6 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.gfxmodeEfi = "3440x1440";
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
+  boot.loader.grub.configurationLimit = 5;
 }

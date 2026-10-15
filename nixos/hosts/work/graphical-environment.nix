@@ -29,6 +29,9 @@
 
   programs.niri.enable = true;
 
+  # setuid wrapper for pkexec (off by default in the polkit module)
+  security.polkit.enablePkexecWrapper = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];

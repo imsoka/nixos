@@ -17,7 +17,6 @@
       thunar-volman
       thunar-vcs-plugin
       thunar-media-tags-plugin
-      codex
       vscodium
       openfortivpn
       dbeaver-bin
@@ -28,5 +27,6 @@
       nodejs
       fluidsynth
       alsa-utils
+      teams-for-linux
     ];
 }
