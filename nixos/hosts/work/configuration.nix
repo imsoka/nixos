@@ -44,6 +44,13 @@
   services.gnome.gcr-ssh-agent.enable = false;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
+  # Lector de huellas Synaptics 06cb:00bd (fprintd, enrolar con fprintd-enroll)
+  services.fprintd.enable = true;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.greetd.fprintAuth = true;
+  # Pop-up de autenticación de polkit (agente de Noctalia)
+  security.pam.services.polkit-1.fprintAuth = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
