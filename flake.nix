@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    moonshine.url = "github:hgaiser/moonshine";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, moonshine }:
   let
     system = "x86_64-linux";
     
@@ -25,6 +26,7 @@
       specialArgs = { inherit system; };
 
       modules = [
+        moonshine.nixosModules.default
         ./nixos/hosts/personal/configuration.nix
       ];
     };
