@@ -12,6 +12,7 @@
       lutris
       mangohud
       webcord
+      discord
     ];
 
     programs.steam.enable = true;
