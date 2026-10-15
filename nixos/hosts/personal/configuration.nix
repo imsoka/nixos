@@ -11,6 +11,7 @@
       ./locale.nix
       ./applications.nix
       ./gpu.nix
+      ./moonshine.nix
       ./graphical-environment.nix
       ./sound.nix
       ./hardware-configuration.nix
@@ -36,7 +37,7 @@
   
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
  
   services.blueman.enable = true;
   services.gvfs.enable = true;

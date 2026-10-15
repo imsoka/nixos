@@ -7,6 +7,10 @@
 
   boot.initrd.systemd.enable = true;
 
+  #Plymouth configuration
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "breeze";
+
   #Grub configuration
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -14,4 +18,5 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.gfxmodeEfi = "3440x1440";
   boot.loader.grub.default = "saved";
+  boot.loader.grub.configurationLimit = 5;
 }
