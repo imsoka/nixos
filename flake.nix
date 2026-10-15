@@ -5,9 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }: 
+  outputs = { self, nixpkgs }:
   let
-    system = "x86_64-linx";
+    system = "x86_64-linux";
     
     pkgs = import nixpkgs {
       inherit system;
@@ -34,14 +34,6 @@
 
       modules = [
         ./nixos/hosts/work/configuration.nix
-      ];
-    };
-
-    sokix-p-work = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit system; };
-
-      modules = [
-        ./nixos/hosts/personal-work/configuration.nix
       ];
     };
   };

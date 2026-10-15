@@ -26,7 +26,6 @@
       brave
       nextcloud-client
       keepassxc
-      logseq
       alacritty
       calibre
       pavucontrol
@@ -34,6 +33,7 @@
       tmux
       anki
       mpv
+      claude-code
     ];
 
     nixpkgs.config = { allowUnfree = true; };

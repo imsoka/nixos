@@ -9,10 +9,14 @@
     base-programs.enable = true;
     programs.thunar = {
       enable = true;
-      plugins = with pkgs; [ thunar-archive-plugin thunar-volman thunar-vcs-plugin thunar-media-tags-plugin ];
+      plugins = with pkgs; [ kdePackages.ark ];
     };
 
     environment.systemPackages = with pkgs; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-vcs-plugin
+      thunar-media-tags-plugin
       codex
       vscodium
       openfortivpn
@@ -21,5 +25,8 @@
       chatterino7
       code-cursor
       libresprite
+      nodejs
+      fluidsynth
+      alsa-utils
     ];
 }

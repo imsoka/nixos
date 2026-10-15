@@ -14,6 +14,7 @@
       ./graphical-environment.nix
       ./sound.nix
       ./hardware-configuration.nix
+      ./ia.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -21,12 +22,16 @@
   #Enable networking
   networking.hostName = "sokix-work"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 4321 9090 ];
+    allowedUDPPorts = [ 4321 9090 ];
+  };
 
   programs.ssh.startAgent = true;
   services.blueman.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.soka = {
@@ -37,7 +42,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"

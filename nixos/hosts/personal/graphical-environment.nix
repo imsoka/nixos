@@ -11,7 +11,6 @@
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     i3status
     dmenu
-    nitrogen
   ];
 
   services.picom.enable = true;

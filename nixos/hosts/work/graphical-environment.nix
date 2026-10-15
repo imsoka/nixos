@@ -10,10 +10,29 @@
     # greeters.gtk.enable = true;
   # };
 
-  services.displayManager.sddm.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.noctalia-greeter}/bin/noctalia-greeter-session";
+      user = "greeter";
+    };
+  };
 
+  environment.systemPackages = with pkgs; [
+    noctalia-shell
+    noctalia-greeter
+    cage
+    wlr-randr
+  ];
 
   services.gnome.gnome-keyring.enable = true;
+
+  programs.niri.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
 
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
