@@ -13,6 +13,8 @@ let
   wrapper = pkgs.writeShellApplication {
     name = "vpn-rema-up";
     runtimeInputs = with pkgs; [ openfortivpn expect procps coreutils ];
+    # SC2016: el bloque de expect usa $env(...) de Tcl a propósito, dentro de comillas simples.
+    excludeShellChecks = [ "SC2016" ];
     text = ''
       action="''${1:-}"
       uid="''${PKEXEC_UID:?debe ejecutarse con pkexec}"
