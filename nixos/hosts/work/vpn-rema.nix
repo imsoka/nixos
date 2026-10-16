@@ -7,7 +7,6 @@
 #   que el wrapper lee y borra. El plugin de Noctalia los escribe.
 let
   vpnHost = "rema.icmns.net";
-  vpnUser = "ogi-varaque";
   actionId = "org.nixos.vpn-rema.run";
 
   wrapper = pkgs.writeShellApplication {
@@ -23,7 +22,15 @@ let
 
       case "$action" in
         start)
-          pass="$dir/pass"; otp="$dir/otp"
+          pass="$dir/pass"; otp="$dir/otp"; userFile="$dir/user"
+          if [ -L "$userFile" ] || [ ! -f "$userFile" ]; then
+            echo "falta el usuario" >&2; exit 1
+          fi
+          user="$(cat "$userFile")"; rm -f "$userFile"
+          # Solo caracteres válidos para un login: nada que pueda confundir a openfortivpn.
+          case "$user" in
+            ""|*[!A-Za-z0-9._@-]*) echo "usuario no válido" >&2; exit 1 ;;
+          esac
           if [ -L "$pass" ] || [ ! -f "$pass" ]; then
             echo "falta la contraseña" >&2; exit 1
           fi
@@ -32,13 +39,14 @@ let
           fi
           # La contraseña va por variable de entorno (no en argv) y el fichero se borra ya.
           VPN_PASS="$(cat "$pass")"; export VPN_PASS
+          VPN_USER="$user"; export VPN_USER
           rm -f "$pass"
           export VPN_OTP="$otp"
           # expect: envía la contraseña y, cuando pide el 2FA, espera al fichero del OTP.
           # Los patrones son una suposición: revisar con la salida real de openfortivpn.
           setsid expect -c '
             set timeout 180
-            spawn openfortivpn ${vpnHost} -u ${vpnUser} --no-ftm-push
+            spawn openfortivpn ${vpnHost} -u $env(VPN_USER) --no-ftm-push
             expect {
               -re {[Pp]assword.*:} { send -- "$env(VPN_PASS)\r"; exp_continue }
               -re {[Tt]oken|[Oo]ne.?[Tt]ime|OTP|[Cc]ode.*:} {
