@@ -64,6 +64,8 @@ let
           ;;
         stop)
           pkill -INT -x openfortivpn || true
+          # El expect que espera el 2FA también debe cerrarse; si no, openfortivpn queda como zombie.
+          pkill -TERM -f 'spawn openfortivpn' || true
           rm -f "$dir/pass" "$dir/otp"
           ;;
         *)
