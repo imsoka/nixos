@@ -15,6 +15,7 @@
       ./sound.nix
       ./hardware-configuration.nix
       ./ia.nix
+      ./vpn-rema.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
