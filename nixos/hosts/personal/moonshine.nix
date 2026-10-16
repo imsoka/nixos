@@ -16,6 +16,27 @@ let
       sleep 1
     done
   '';
+
+  # Carátula de Pegasus en Moonlight (portada vertical 600x900) con el logo
+  # oficial del proyecto
+  pegasusLogo = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/mmatyas/pegasus-frontend/becf2e8b835abd876c0fa0c6274bc13acf71027e/etc/branding/logo.svg";
+    hash = "sha256-qhuGdX9atojqgNb+OJhdMBbrc6poLP6Nr14ArcbQSHE=";
+  };
+  pegasusBoxart = pkgs.runCommand "pegasus-boxart.png" {
+    nativeBuildInputs = [ pkgs.imagemagick pkgs.librsvg ];
+  } ''
+    fonts=${pkgs.dejavu_fonts}/share/fonts/truetype
+    rsvg-convert -w 380 -h 380 ${pegasusLogo} -o logo.png
+    magick -size 600x900 gradient:'#f4f4f6-#d9d9de' \
+      logo.png -gravity center -geometry +0-90 -composite \
+      -font $fonts/DejaVuSans-Bold.ttf -fill '#1d1d22' -pointsize 88 \
+      -annotate +0+190 'Pegasus' \
+      -fill '#ff4b4b' -draw 'rectangle 240,700 360,705' \
+      -font $fonts/DejaVuSans.ttf -fill '#55555e' -pointsize 28 \
+      -annotate +0+300 'Steam · Epic · GOG · Amazon' \
+      $out
+  '';
 in
 {
   services.moonshine = {
@@ -27,17 +48,12 @@ in
     openFirewall = true;
 
     settings = {
-      # El módulo por defecto apunta a /usr/bin/steam, que no existe en NixOS.
       application = [
-        {
-          title = "Steam Big Picture";
-          command = [ "/run/current-system/sw/bin/steam" "-bigpicture" ];
-          pre_command = [ [ "${closeDesktopSteam}" ] ];
-        }
         {
           # Biblioteca de Steam y Heroic generada por pegasus-library. Pasa
           # por el wrapper de home-manager, que sincroniza antes de abrir
           title = "Pegasus";
+          boxart = "${pegasusBoxart}";
           command = [ "/home/soka/.nix-profile/bin/pegasus-fe" ];
           pre_command = [ [ "${closeDesktopSteam}" ] ];
         }
