@@ -10,6 +10,8 @@
     environment.systemPackages = with pkgs; [
       wine
       lutris
+      # Lanzador a pantalla completa para mando
+      pegasus-frontend
       mangohud
       discord
     ];
