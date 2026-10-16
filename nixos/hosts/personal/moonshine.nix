@@ -6,8 +6,8 @@
     user = "soka";
     uid = 1000;
 
-    # Solo LAN o VPN (Tailscale, WireGuard). No exponer a internet.
-    openFirewall = false;
+    # Abre los puertos en el firewall local (LAN). No redirigirlos en el router.
+    openFirewall = true;
 
     settings = {
       # El módulo por defecto apunta a /usr/bin/steam, que no existe en NixOS.

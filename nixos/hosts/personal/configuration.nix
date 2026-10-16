@@ -32,7 +32,7 @@
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
-    extraGroups = [ "networkmanager" "wheel" "gamer" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "gamer" "docker" "gamemode" "input" "moonshine" ];
   };
   
   services.gnome.gnome-keyring.enable = true;
