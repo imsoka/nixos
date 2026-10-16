@@ -51,7 +51,7 @@ let
               -re {[Pp]assword.*:} { send -- "$env(VPN_PASS)\r"; exp_continue }
               -re {[Tt]oken|[Oo]ne.?[Tt]ime|OTP|[Cc]ode.*:} {
                 set code ""
-                for {set i 0} {$i < 120} {incr i} {
+                for {set i 0} {$i < 300} {incr i} {
                   if {[file exists $env(VPN_OTP)]} { set code [exec cat $env(VPN_OTP)]; exec rm -f $env(VPN_OTP); break }
                   sleep 1
                 }
