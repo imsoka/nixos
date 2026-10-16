@@ -22,6 +22,8 @@ let
 
       case "$action" in
         start)
+          # Todo el intento queda en el log, también los errores tempranos.
+          : > "$log"; exec >>"$log" 2>&1
           pass="$dir/pass"; otp="$dir/otp"; userFile="$dir/user"
           if [ -L "$userFile" ] || [ ! -f "$userFile" ]; then
             echo "falta el usuario" >&2; exit 1
@@ -59,7 +61,7 @@ let
               }
               eof
             }
-          ' >"$log" 2>&1 &
+          ' &
           unset VPN_PASS
           ;;
         stop)
