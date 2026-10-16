@@ -48,6 +48,9 @@ in
     openFirewall = true;
 
     settings = {
+      # Nombre con el que aparece el PC en Moonlight
+      name = "Sokix";
+
       application = [
         {
           # Biblioteca de Steam y Heroic generada por pegasus-library. Pasa
