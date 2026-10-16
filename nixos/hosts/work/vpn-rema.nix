@@ -24,12 +24,10 @@ let
         start)
           # Todo el intento queda en el log, también los errores tempranos.
           : > "$log"; exec >>"$log" 2>&1
-          pass="$dir/pass"; otp="$dir/otp"; userFile="$dir/user"
-          if [ -L "$userFile" ] || [ ! -f "$userFile" ]; then
-            echo "falta el usuario" >&2; exit 1
-          fi
-          user="$(cat "$userFile")"; rm -f "$userFile"
-          # Solo caracteres válidos para un login: nada que pueda confundir a openfortivpn.
+          echo "intento: $(date) uid=$uid"; ls -la "$dir" 2>&1 || true
+          pass="$dir/pass"; otp="$dir/otp"
+          # El usuario llega como argumento (no es secreto). Solo caracteres válidos para un login.
+          user="''${2:-}"
           case "$user" in
             ""|*[!A-Za-z0-9._@-]*) echo "usuario no válido" >&2; exit 1 ;;
           esac
