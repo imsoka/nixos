@@ -12,6 +12,7 @@
       ./applications.nix
       ./gpu.nix
       ./moonshine.nix
+      ./tailscale.nix
       ./graphical-environment.nix
       ./sound.nix
       ./hardware-configuration.nix
