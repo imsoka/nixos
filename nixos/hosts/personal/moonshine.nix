@@ -17,6 +17,27 @@ let
     done
   '';
 
+  # Lo mismo con Heroic: el heroic://launch del stream se le pasaría al
+  # Heroic del escritorio. No tiene un -shutdown como Steam; su proceso
+  # principal (Electron con app.asar y sin --type=, que llevan sus procesos
+  # hijos) se cierra de forma ordenada con SIGTERM.
+  closeDesktopHeroic = pkgs.writeShellScript "close-desktop-heroic" ''
+    PATH=${pkgs.lib.makeBinPath [ pkgs.procps pkgs.coreutils pkgs.gnugrep ]}
+    heroic_main() {
+      for pid in $(pgrep -u "$(id -u)" -f 'heroic-unwrapped-.*app\.asar'); do
+        tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null | grep -q -- '--type=' ||
+          echo "$pid"
+      done
+    }
+    pids=$(heroic_main)
+    [ -n "$pids" ] || exit 0
+    kill $pids 2>/dev/null
+    for _ in $(seq 1 15); do
+      [ -n "$(heroic_main)" ] || exit 0
+      sleep 1
+    done
+  '';
+
   # Carátula de Pegasus en Moonlight (portada vertical 600x900) con el logo
   # oficial del proyecto
   pegasusLogo = pkgs.fetchurl {
@@ -58,7 +79,10 @@ in
           title = "Pegasus";
           boxart = "${pegasusBoxart}";
           command = [ "/home/soka/.nix-profile/bin/pegasus-fe" ];
-          pre_command = [ [ "${closeDesktopSteam}" ] ];
+          pre_command = [
+            [ "${closeDesktopSteam}" ]
+            [ "${closeDesktopHeroic}" ]
+          ];
         }
       ];
     };
