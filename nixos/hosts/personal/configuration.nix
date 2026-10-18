@@ -23,6 +23,7 @@
   #Enable networking
   networking.hostName = "sokix"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.interfaces.enp4s0.wakeOnLan.enable = true; # WoL (paquete mágico) desde LAN e internet
 
   #Define gamer group
   users.groups.gamer = {};  
