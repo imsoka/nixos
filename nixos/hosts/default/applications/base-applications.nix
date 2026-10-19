@@ -29,7 +29,6 @@
   brave.enable = true;
   nextcloud-client.enable = true;
   keepassxc.enable = true;
-  logseq.enable = true;
   alacritty.enable = true;
   calibre.enable = true;
 }
