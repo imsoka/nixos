@@ -9,7 +9,10 @@
 
   #Plymouth configuration
   boot.plymouth.enable = true;
-  boot.plymouth.theme = "breeze";
+  boot.plymouth.theme = "lone";
+  boot.plymouth.themePackages = [
+    (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ "lone" ]; })
+  ];
 
   #Grub configuration
   boot.loader.grub.enable = true;
