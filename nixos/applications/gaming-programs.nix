@@ -2,12 +2,6 @@
 
 let
   a2tools = pkgs.callPackage ./a2tools-dps-meter/package.nix { };
-  # Lo usan las opciones de lanzamiento de AION 2 (home-manager, steam.nix)
-  conA2tools = pkgs.writeShellApplication {
-    name = "con-a2tools";
-    runtimeInputs = [ pkgs.procps pkgs.coreutils ];
-    text = builtins.readFile ./a2tools-dps-meter/con-a2tools.sh;
-  };
 in
 {
   options = {
@@ -25,9 +19,8 @@ in
       discord
       # DPI y botones del ratón (G305) en su memoria interna, vía ratbagd
       piper
-      # DPS meter de AION 2; se abre con el juego (con-a2tools)
+      # DPS meter de AION 2; se abre a mano
       a2tools
-      conA2tools
     ];
 
     # Macros y remapeo de teclado y ratón (GUI "Input Remapper"). Va por
