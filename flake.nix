@@ -23,7 +23,7 @@
 
   nixosConfigurations = {
     sokix = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit system; };
+      specialArgs = { inherit system moonshine; };
 
       modules = [
         moonshine.nixosModules.default
