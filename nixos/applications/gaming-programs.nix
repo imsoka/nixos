@@ -25,7 +25,12 @@ in
 
     # Macros y remapeo de teclado y ratón (GUI "Input Remapper"). Va por
     # evdev/uinput, así que funciona en Wayland, niri y gamescope
-    services.input-remapper.enable = true;
+    services.input-remapper = {
+      enable = true;
+      # Vuelve a aplicar el preset cuando el ratón se reconecta (receptor del
+      # G305, suspensión); al iniciar sesión lo carga niri (spawn-at-startup)
+      enableUdevRules = true;
+    };
     # La GUI arranca su lector de dispositivos con pkexec: sin pedir
     # contraseña cada vez, solo ese comando, solo para wheel en la sesión
     # local activa; el grupo input ya puede leer los dispositivos igualmente.
