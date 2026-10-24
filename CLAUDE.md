@@ -15,6 +15,9 @@ Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/
 2. Compila tú: `nixos-rebuild build --flake ~/.config/nixos#<host>`.
 3. El switch requiere sudo con contraseña (decisión del usuario: sin NOPASSWD). Pide al usuario que ejecute `! sudo nixos-rebuild switch --flake ~/.config/nixos#<host>` y espera su resultado.
 
+## Hook de pre-commit
+`.githooks/pre-commit` valida sintaxis y evaluación de todas las configs del flake; tras clonar actívalo con `git config core.hooksPath .githooks`.
+
 ## Commits (permiso permanente)
 Commitea cada cambio ya aplicado y comprobado: un commit por tema, mensaje `tema: descripción` en español (temas habituales: `gaming`, `moonshine`, `base`, `personal`, `work`, `nvidia`, `flake`). Añade solo los ficheros que has tocado tú en esta sesión; lo que ya estaba modificado al empezar viene de otra sesión o del usuario y se queda fuera.
 
