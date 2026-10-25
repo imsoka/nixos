@@ -8,6 +8,9 @@
   config = lib.mkIf config.nvidia.enable {
     services.xserver.videoDrivers = [ "nvidia" ];
 
+    # Early KMS: without this, greetd starts before nvidia-drm and fails on simpledrm's card0
+    boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
     hardware.graphics = {
       enable = true;
     };
