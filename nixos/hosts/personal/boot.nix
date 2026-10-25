@@ -5,8 +5,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.kernelParams = [ "quiet" "udev.log_level=3" ];
 
-  boot.initrd.systemd.enable = true;
-
   #Plymouth configuration
   boot.plymouth.enable = true;
   boot.plymouth.theme = "lone";

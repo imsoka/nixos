@@ -1,9 +1,6 @@
 {pkgs, config, ...}:
 
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   services.greetd = {
     enable = true;
     settings.default_session = {
@@ -22,19 +19,10 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
   };
 
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.windowManager.i3.extraPackages = with pkgs; [
-    i3status
-    dmenu
-  ];
-
-  services.picom.enable = true;
   programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
     vimix-icon-theme
-    lxappearance
-    noctalia-shell
     noctalia-greeter
     cage
     wlr-randr
