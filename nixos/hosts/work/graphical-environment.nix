@@ -19,7 +19,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    noctalia-shell
     noctalia-greeter
     cage
     wlr-randr

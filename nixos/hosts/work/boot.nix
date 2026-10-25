@@ -9,8 +9,6 @@
   boot.plymouth.enable = true;
   boot.plymouth.theme = "breeze";
 
-  boot.initrd.systemd.enable = true;
-
   #Grub configuration
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
