@@ -38,8 +38,14 @@
   users.users.soka = {
     isNormalUser = true;
     description = "Victor Araque Casaus";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "uinput" ];
   };
+
+  # Typeless: lee el teclado (input) y escribe el texto dictado (uinput)
+  hardware.uinput.enable = true;
+  # Typeless lee el campo de texto activo por AT-SPI; sin el bus de
+  # accesibilidad (org.a11y.Bus) avisa de "permiso de accesibilidad requerido"
+  services.gnome.at-spi2-core.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;

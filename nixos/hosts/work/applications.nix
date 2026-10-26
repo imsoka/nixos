@@ -28,5 +28,7 @@
       fluidsynth
       alsa-utils
       teams-for-linux
+      # Dictado por voz (tecla global vía /dev/input y uinput, ver configuration.nix)
+      (callPackage ../../applications/typeless/package.nix { })
     ];
 }
