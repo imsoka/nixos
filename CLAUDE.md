@@ -8,7 +8,6 @@ Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/
 - Moonshine (streaming) → `hosts/personal/moonshine.nix`; tailscale → `hosts/personal/tailscale.nix`; WoL → `hosts/personal/configuration.nix`.
 - Escritorio de sistema (niri, greetd, plymouth) → `hosts/<host>/graphical-environment.nix` y `boot.nix`. La config de niri del usuario está en home-manager.
 - Nvidia → `nixos/drivers/video/nvidia.nix`; IA y huella → solo work (`ia.nix`, `configuration.nix`).
-- `nixos/hosts/default/` es código viejo que nadie importa: edita los ficheros de arriba.
 
 ## Aplicar
 1. Ficheros nuevos: `git add` antes de compilar, o el flake no los ve.
