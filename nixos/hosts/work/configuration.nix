@@ -16,6 +16,7 @@
       ./hardware-configuration.nix
       ./ia.nix
       ./vpn-rema.nix
+      ./tailscale.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
