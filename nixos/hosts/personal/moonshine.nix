@@ -62,17 +62,6 @@ in
 {
   services.moonshine = {
     enable = true;
-
-    # Upstream (559699e) subió ash a 0.38.0+1.4.352, que ya está en una rama
-    # normal, pero su package.nix aún fija el hash del ash viejo y la
-    # evaluación falla. Se regeneran los cargoDeps sin ese hash. Quitar
-    # cuando upstream borre la entrada "ash-0.38.0+1.4.329" de outputHashes.
-    package = (pkgs.callPackage "${moonshine}/nix/package.nix" { }).overrideAttrs (old: {
-      cargoDeps = pkgs.rustPlatform.importCargoLock {
-        lockFile = "${old.src}/Cargo.lock";
-        allowBuiltinFetchGit = true;
-      };
-    });
     user = "soka";
     uid = 1000;
 

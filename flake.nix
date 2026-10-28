@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    moonshine.url = "github:hgaiser/moonshine";
+    moonshine = {
+      url = "github:hgaiser/moonshine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, moonshine }:
