@@ -12,6 +12,9 @@
     enable = true;
     # Crea el usuario soka y entra con él; coincide con home.homeDirectory de home-manager.
     defaultUser = "soka";
+    # SSH_AUTH_SOCK apunta a un puente con el ssh-agent de Windows, donde KeePassXC
+    # carga las claves: las mismas sirven en Windows y aquí (install.ps1 arranca el servicio).
+    ssh-agent.enable = true;
   };
 
   # Sin hardware-configuration.nix en WSL: la plataforma se fija aquí.
@@ -31,7 +34,6 @@
   };
 
   programs.git.enable = true;
-  programs.ssh.startAgent = true;
 
   # Cursor/VSCodium en modo "Remote WSL" copian aquí un servidor Node que no es
   # de Nix; nix-ld le da el cargador dinámico y las librerías que espera.

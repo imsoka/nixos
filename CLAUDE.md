@@ -16,6 +16,7 @@ Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/
   1. Dentro de WSL: `export NIX_CONFIG="experimental-features = nix-command flakes"`, `nix-shell -p git --run "git clone https://github.com/imsoka/nixos /tmp/nixos"` y `sudo -E nixos-rebuild boot --flake /tmp/nixos#sokix-wsl`.
   2. En PowerShell (cambio de usuario a `soka`): `wsl -t NixOS`, `wsl -d NixOS --user root exit`, `wsl -t NixOS`.
   3. Ya como `soka`: clonar `nixos` y `home-manager` en `~/.config/`, `git config core.hooksPath .githooks` en ambos, y `home-manager switch --flake ~/.config/home-manager#soka-wsl`.
+- SSH: `wsl.ssh-agent` hace de puente al ssh-agent de Windows (lo activa `install.ps1`), donde KeePassXC carga las claves; no hay agente propio en WSL. Comprobar con `ssh-add -l`.
 - Trabaja en `~` (ext4 de WSL), no en `/mnt/c`: el acceso a ficheros de Windows es mucho más lento.
 
 ## Aplicar
