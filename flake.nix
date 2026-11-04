@@ -7,9 +7,14 @@
       url = "github:hgaiser/moonshine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # NixOS dentro de WSL2 (host sokix-wsl)
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, moonshine }:
+  outputs = { self, nixpkgs, moonshine, nixos-wsl }:
   let
     system = "x86_64-linux";
     
@@ -39,6 +44,16 @@
 
       modules = [
         ./nixos/hosts/work/configuration.nix
+      ];
+    };
+
+    # Portátil del trabajo con Windows: NixOS dentro de WSL2
+    sokix-wsl = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit system; };
+
+      modules = [
+        nixos-wsl.nixosModules.default
+        ./nixos/hosts/wsl/configuration.nix
       ];
     };
   };

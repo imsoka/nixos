@@ -1,6 +1,6 @@
 # NixOS (flake)
 
-Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/hosts/work/`. Cada host entra por su `configuration.nix` e importa sus módulos.
+Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/hosts/work/`, `sokix-wsl` → `nixos/hosts/wsl/` (NixOS-WSL en el portátil con Windows; solo terminal). Cada host entra por su `configuration.nix` e importa sus módulos.
 
 ## Dónde vive cada cosa
 - Paquetes comunes → `nixos/applications/base-programs.nix` (lo importan ambos hosts).
@@ -8,6 +8,15 @@ Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/
 - Moonshine (streaming) → `hosts/personal/moonshine.nix`; tailscale → `hosts/personal/tailscale.nix`; WoL → `hosts/personal/configuration.nix`.
 - Escritorio de sistema (niri, greetd, plymouth) → `hosts/<host>/graphical-environment.nix` y `boot.nix`. La config de niri del usuario está en home-manager.
 - Nvidia → `nixos/drivers/video/nvidia.nix`; IA y huella → solo work (`ia.nix`, `configuration.nix`).
+
+## sokix-wsl (NixOS-WSL)
+- Input `nixos-wsl` del flake; sin `hardware-configuration.nix` (la plataforma va en `nixpkgs.hostPlatform`). `sudo` sin contraseña (por defecto en NixOS-WSL).
+- La parte de Windows (apps winget, GlazeWM, Windows Terminal, `install.ps1`) está en `windows/` del repo home-manager.
+- Primer arranque, tras `install.ps1` (la imagen entra con el usuario `nixos`):
+  1. Dentro de WSL: `export NIX_CONFIG="experimental-features = nix-command flakes"`, `nix-shell -p git --run "git clone https://github.com/imsoka/nixos /tmp/nixos"` y `sudo -E nixos-rebuild boot --flake /tmp/nixos#sokix-wsl`.
+  2. En PowerShell (cambio de usuario a `soka`): `wsl -t NixOS`, `wsl -d NixOS --user root exit`, `wsl -t NixOS`.
+  3. Ya como `soka`: clonar `nixos` y `home-manager` en `~/.config/`, `git config core.hooksPath .githooks` en ambos, y `home-manager switch --flake ~/.config/home-manager#soka-wsl`.
+- Trabaja en `~` (ext4 de WSL), no en `/mnt/c`: el acceso a ficheros de Windows es mucho más lento.
 
 ## Aplicar
 1. Ficheros nuevos: `git add` antes de compilar, o el flake no los ve.
