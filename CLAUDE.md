@@ -11,7 +11,7 @@ Host = `hostname`: `sokix` → `nixos/hosts/personal/`, `sokix-work` → `nixos/
 
 ## sokix-wsl (NixOS-WSL)
 - Input `nixos-wsl` del flake; sin `hardware-configuration.nix` (la plataforma va en `nixpkgs.hostPlatform`). `sudo` sin contraseña (por defecto en NixOS-WSL).
-- La parte de Windows (apps winget, GlazeWM, Windows Terminal, `install.ps1`) está en `windows/` del repo home-manager.
+- La parte de Windows (apps winget, GlazeWM, WezTerm, `install.ps1`) está en `windows/` del repo home-manager.
 - Primer arranque, tras `install.ps1` (la imagen entra con el usuario `nixos`):
   1. Dentro de WSL: `export NIX_CONFIG="experimental-features = nix-command flakes"`, `nix-shell -p git --run "git clone https://github.com/imsoka/nixos /tmp/nixos"` y `sudo -E nixos-rebuild boot --flake /tmp/nixos#sokix-wsl`.
   2. En PowerShell (cambio de usuario a `soka`): `wsl -t NixOS`, `wsl -d NixOS --user root exit`, `wsl -t NixOS`.
