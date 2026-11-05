@@ -60,7 +60,8 @@
       ++ from pkgs.gzip      [ "gzip" "gunzip" ]
       ++ from pkgs.which     [ "which" ]
       ++ from pkgs.wget      [ "wget" ]
-      ++ from pkgs.curl      [ "curl" ];
+      ++ from pkgs.curl      [ "curl" ]
+      ++ from pkgs.util-linux [ "setsid" ];
 
   environment.systemPackages = with pkgs; [
     home-manager
