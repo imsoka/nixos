@@ -41,26 +41,26 @@
 
   # El instalador del servidor de Cursor corre en un shell no interactivo sin el
   # PATH de NixOS: espera estas herramientas en /bin.
-  wsl.extraBin = with pkgs; [
-    { src = "${coreutils}/bin/uname"; }
-    { src = "${coreutils}/bin/dirname"; }
-    { src = "${coreutils}/bin/readlink"; }
-    { src = "${coreutils}/bin/mkdir"; }
-    { src = "${coreutils}/bin/rm"; }
-    { src = "${coreutils}/bin/mv"; }
-    { src = "${coreutils}/bin/cat"; }
-    { src = "${coreutils}/bin/chmod"; }
-    { src = "${coreutils}/bin/ln"; }
-    { src = "${coreutils}/bin/sleep"; }
-    { src = "${coreutils}/bin/head"; }
-    { src = "${coreutils}/bin/id"; }
-    { src = "${gnused}/bin/sed"; }
-    { src = "${gnugrep}/bin/grep"; }
-    { src = "${gnutar}/bin/tar"; }
-    { src = "${gzip}/bin/gzip"; }
-    { src = "${wget}/bin/wget"; }
-    { src = "${curl}/bin/curl"; }
-  ];
+  wsl.extraBin =
+    let
+      from = pkg: names: map (n: { src = "${pkg}/bin/${n}"; }) names;
+    in
+      from pkgs.coreutils [
+        "uname" "date" "mktemp" "cp" "mv" "rm" "mkdir" "rmdir" "cat" "ls" "ln"
+        "chmod" "chown" "touch" "dirname" "basename" "readlink" "realpath"
+        "head" "tail" "sleep" "tr" "cut" "wc" "sort" "uniq" "tee" "id"
+        "whoami" "env" "printf" "echo" "test" "stat" "sha256sum" "nohup" "timeout"
+      ]
+      ++ from pkgs.findutils [ "find" "xargs" ]
+      ++ from pkgs.procps    [ "ps" "pkill" "pgrep" "kill" ]
+      ++ from pkgs.gnused    [ "sed" ]
+      ++ from pkgs.gnugrep   [ "grep" ]
+      ++ from pkgs.gawk      [ "awk" ]
+      ++ from pkgs.gnutar    [ "tar" ]
+      ++ from pkgs.gzip      [ "gzip" "gunzip" ]
+      ++ from pkgs.which     [ "which" ]
+      ++ from pkgs.wget      [ "wget" ]
+      ++ from pkgs.curl      [ "curl" ];
 
   environment.systemPackages = with pkgs; [
     home-manager
