@@ -39,9 +39,34 @@
   # de Nix; nix-ld le da el cargador dinámico y las librerías que espera.
   programs.nix-ld.enable = true;
 
+  # El instalador del servidor de Cursor corre en un shell no interactivo sin el
+  # PATH de NixOS: espera estas herramientas en /bin.
+  wsl.extraBin = with pkgs; [
+    { src = "${coreutils}/bin/uname"; }
+    { src = "${coreutils}/bin/dirname"; }
+    { src = "${coreutils}/bin/readlink"; }
+    { src = "${coreutils}/bin/mkdir"; }
+    { src = "${coreutils}/bin/rm"; }
+    { src = "${coreutils}/bin/mv"; }
+    { src = "${coreutils}/bin/cat"; }
+    { src = "${coreutils}/bin/chmod"; }
+    { src = "${coreutils}/bin/ln"; }
+    { src = "${coreutils}/bin/sleep"; }
+    { src = "${coreutils}/bin/head"; }
+    { src = "${coreutils}/bin/id"; }
+    { src = "${gnused}/bin/sed"; }
+    { src = "${gnugrep}/bin/grep"; }
+    { src = "${gnutar}/bin/tar"; }
+    { src = "${gzip}/bin/gzip"; }
+    { src = "${wget}/bin/wget"; }
+    { src = "${curl}/bin/curl"; }
+  ];
+
   environment.systemPackages = with pkgs; [
     home-manager
     claude-code
+    wget
+    curl
   ];
 
   system.stateVersion = "26.05"; # Did you read the comment?
